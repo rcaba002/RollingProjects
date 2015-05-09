@@ -16,6 +16,14 @@ namespace NameMangler
             WriteNamesToFile("./sortedNames.txt", sortedNames);
         }
 
+        private static void WriteNamesToFile(string p, string[] sortedNames)
+        {
+            foreach (var name in sortedNames)
+            {
+                Console.WriteLine(name);
+            }
+        }
+
         private static string[] GetNames()
         {
             return new [] {
