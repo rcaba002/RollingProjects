@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -16,7 +17,10 @@ namespace Polymorphism
 
         public override void EchoSomethingToALine(string value)
         {
-            Console.WriteLine("I should write {0} to {1}", value, _filePath);
+            using (StreamWriter writer = new StreamWriter(_filePath, true))
+            {
+                writer.WriteLine(value);
+            }
         }
     }
 }

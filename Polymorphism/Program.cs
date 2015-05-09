@@ -13,6 +13,8 @@ namespace Polymorphism
             //Output consoleVar = new ConsoleOutput();
             //Output fileVar = new FileOutput("c:/work/claim/foo.txt");
 
+
+
             Output outputVar;
             string response = Console.ReadLine();
             if (response == "h")
@@ -25,7 +27,7 @@ namespace Polymorphism
             }
             else
             {
-                outputVar = new FileOutput("c:/work/claim.foo.txt");
+                outputVar = new FileOutput("c:/work/claim/foo.txt");
             }
 
             WriteSomeStuffToOutput(outputVar);
