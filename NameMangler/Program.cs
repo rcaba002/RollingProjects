@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,15 @@ namespace NameMangler
             string[] names = GetNames();
             string[] sortedNames = SortNames(names);
             WriteNamesToFile("./sortedNames.txt", sortedNames);
+        }
+
+        private static string[] GetNames()
+        {
+            return new [] {
+                "John Doe",
+                "Jane Doe",
+                "Superman"
+            };
         }
     }
 }
