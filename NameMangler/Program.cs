@@ -14,6 +14,23 @@ namespace NameMangler
             string[] names = GetNames();
             string[] sortedNames = SortNames(names);
             WriteNamesToFile("./sortedNames.txt", sortedNames);
+
+            Console.ReadLine();
+        }
+
+        private static string[] SortNames(string[] names)
+        {
+            string[] sortedNames = new string[names.Length];
+            names.CopyTo(sortedNames, 0);
+
+            Array.Sort(sortedNames);
+
+            return sortedNames;
+        }
+
+        private static string GetLowestName(string first, string second)
+        {
+            return string.Compare(first, second) < 0 ? first : second;
         }
 
         private static void WriteNamesToFile(string p, string[] sortedNames)
@@ -26,7 +43,7 @@ namespace NameMangler
 
         private static string[] GetNames()
         {
-            return new [] {
+            return new[] {
                 "John Doe",
                 "Jane Doe",
                 "Superman"
