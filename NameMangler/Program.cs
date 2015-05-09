@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Faker;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,7 +17,7 @@ namespace NameMangler
             string[] sortedNames = SortNames(names);
             WriteNamesToFile("./sortedNames.txt", sortedNames);
 
-            Console.ReadLine();
+            Process.Start("notepad.exe", "./sortedNames.txt");
         }
 
         private static string[] SortNames(string[] names)
@@ -33,21 +35,20 @@ namespace NameMangler
             return string.Compare(first, second) < 0 ? first : second;
         }
 
-        private static void WriteNamesToFile(string p, string[] sortedNames)
+        private static void WriteNamesToFile(string fileName, string[] sortedNames)
         {
-            foreach (var name in sortedNames)
-            {
-                Console.WriteLine(name);
-            }
+            File.WriteAllLines(fileName, sortedNames);
         }
 
         private static string[] GetNames()
         {
-            return new[] {
-                "John Doe",
-                "Jane Doe",
-                "Superman"
-            };
+            string[] names = new string[20000];
+            for (var i = 0; i < names.Length; i++)
+            {
+                names[i] = Name.FullName();
+            }
+
+            return names;
         }
     }
 }
