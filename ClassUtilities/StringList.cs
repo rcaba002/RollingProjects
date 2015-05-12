@@ -38,5 +38,12 @@ namespace ClassUtilities
             temp.CopyTo(innerList, 0);
             Length = innerList.Length;
         }
+
+        public string[] GetArray()
+        {
+            string[] CopiedArray = new string[innerList.Length];
+            innerList.CopyTo(CopiedArray, 0);
+            return CopiedArray;
+        }
     }
 }

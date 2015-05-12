@@ -59,5 +59,14 @@ namespace ClassUtilitiesTests
             list.Add("Foo");
             Assert.Equal(1, list.Length);
         }
+
+        [Fact]
+        public void CheckArray_ToSeeIf_Copied()
+        {
+            var passedInArray = new[] { "Foo" };
+            StringList list = new StringList(passedInArray);
+            string[] test = list.GetArray();
+            Assert.Equal("Foo", test[0]);
+        }
     }
 }
