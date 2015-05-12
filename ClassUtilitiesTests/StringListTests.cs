@@ -41,5 +41,13 @@ namespace ClassUtilitiesTests
             list.Add("Foo");
             Assert.Equal("Foo", list.Get(0));
         }
+
+        [Fact]
+        public void Add_ListCountIncreasesByOne_WhenNewItemIsAdded()
+        {
+            StringList list = new StringList();
+            list.Add("Foo");
+            Assert.Equal(1, list.Length);
+        }
     }
 }
