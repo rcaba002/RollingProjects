@@ -33,5 +33,13 @@ namespace ClassUtilitiesTests
             Assert.Equal("Foo", list.Get(0));
             Assert.Equal("Bar", list.Get(1));
         }
+
+        [Fact]
+        public void Add_ListHasItem_WhenItemIsAdded()
+        {
+            StringList list = new StringList();
+            list.Add("Foo");
+            Assert.Equal("Foo", list.Get(0));
+        }
     }
 }

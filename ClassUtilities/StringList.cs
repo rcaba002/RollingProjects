@@ -8,24 +8,33 @@ namespace ClassUtilities
 {
     public class StringList
     {
-        private string[] passedInArray;
+        private string[] innerList;
 
         public StringList()
         {
-
+            innerList = new string[0];
         }
 
         public StringList(string[] passedInArray)
         {
-            this.passedInArray = passedInArray;
+            this.innerList = passedInArray;
             Length = passedInArray.Length;
         }
 
         public int Length { get; set; }
 
-        public string Get(int p)
+        public string Get(int index)
         {
-            return passedInArray[p];
+            return innerList[index];
+        }
+
+        public void Add(string item)
+        {
+            string[] temp = new string[innerList.Length + 1];
+            innerList.CopyTo(temp, 0);
+            temp[innerList.Length] = item;
+            innerList = new string[temp.Length];
+            temp.CopyTo(innerList, 0);
         }
     }
 }
