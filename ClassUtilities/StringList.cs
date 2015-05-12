@@ -17,7 +17,8 @@ namespace ClassUtilities
 
         public StringList(string[] passedInArray)
         {
-            this.innerList = passedInArray;
+            innerList = new string[passedInArray.Length];
+            passedInArray.CopyTo(innerList, 0);
             Length = passedInArray.Length;
         }
 

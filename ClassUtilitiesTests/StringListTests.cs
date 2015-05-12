@@ -35,6 +35,16 @@ namespace ClassUtilitiesTests
         }
 
         [Fact]
+        public void Constructor_StringListDoesntChange_WhenPassedInArrayChanges()
+        {
+            var passedInArray = new[] { "Foo", "Bar" };
+            StringList list = new StringList(passedInArray);
+            passedInArray[0] = "Baz";
+            Assert.Equal("Foo", list.Get(0));
+            Assert.Equal("Bar", list.Get(1));
+        }
+
+        [Fact]
         public void Add_ListHasItem_WhenItemIsAdded()
         {
             StringList list = new StringList();
