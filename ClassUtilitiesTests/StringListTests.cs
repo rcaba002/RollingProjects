@@ -17,12 +17,15 @@ namespace ClassUtilitiesTests
             Assert.Equal(0, list.Length);
         }
 
-        [Fact]
-        public void Constructor_HasCountOfThree_WhenExistingArrayHasThreeItems()
+        [Theory]
+        [InlineData(3)]
+        [InlineData(0)]
+        [InlineData(100)]
+        public void Constructor_HasCountOfThree_WhenExistingArrayHasThreeItems(int size)
         {
-            string[] passedInArray = new string[3];
+            string[] passedInArray = new string[size];
             StringList list = new StringList(passedInArray);
-            Assert.Equal(3, list.Length);
+            Assert.Equal(size, list.Length);
         }
 
         [Fact]
@@ -58,6 +61,14 @@ namespace ClassUtilitiesTests
             StringList list = new StringList();
             list.Add("Foo");
             Assert.Equal(1, list.Length);
+        }
+
+        [Fact]
+        public void Clear_LengthIsSetToZero()
+        {
+            StringList list = new StringList(new[] { "Foo", "Bar" });
+            list.Clear();
+            Assert.Equal(0, list.Length);
         }
     }
 }

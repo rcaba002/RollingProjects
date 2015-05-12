@@ -38,5 +38,11 @@ namespace ClassUtilities
             temp.CopyTo(innerList, 0);
             Length = innerList.Length;
         }
+
+        public void Clear()
+        {
+            innerList = new string[0];
+            Length = innerList.Length;
+        }
     }
 }
