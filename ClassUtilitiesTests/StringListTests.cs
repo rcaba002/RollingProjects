@@ -70,5 +70,23 @@ namespace ClassUtilitiesTests
             list.Clear();
             Assert.Equal(0, list.Length);
         }
+
+        [Fact]
+        public void CheckArray_ToSeeIf_Copied()
+        {
+            var passedInArray = new[] { "Foo" };
+            StringList list = new StringList(passedInArray);
+            string[] test = list.GetArray();
+            Assert.Equal("Foo", test[0]);
+        }
+
+        [Fact]
+        public void Remove_WhenItemHasBeenRemoved()
+        {
+            StringList list = new StringList(new[] { "Foo", "Bar", "Baz" });
+            list.Remove(1);
+            Assert.Equal("Foo", list.Get(0));
+            Assert.Equal("Baz", list.Get(1));
+        }
     }
 }

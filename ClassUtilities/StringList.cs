@@ -44,5 +44,30 @@ namespace ClassUtilities
             innerList = new string[0];
             Length = innerList.Length;
         }
+
+        public string[] GetArray()
+        {
+            string[] CopiedArray = new string[innerList.Length];
+            innerList.CopyTo(CopiedArray, 0);
+            return CopiedArray;
+        }
+
+        public void Remove(int indexToRemove)
+        {
+            string[] temp = new string[innerList.Length - 1];
+            for (int i = 0; i < innerList.Length; i++)
+            {
+                if (i > indexToRemove)
+                {
+                    temp[i - 1] = innerList[i];
+                }
+                else
+                {
+                    temp[i] = innerList[i];
+                }
+            }
+
+            innerList = temp;
+        }
     }
 }
