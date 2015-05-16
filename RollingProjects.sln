@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassUtilities", "ClassUtil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassUtilitiesTests", "ClassUtilitiesTests\ClassUtilitiesTests.csproj", "{08A8FFFA-FD51-4FA4-B128-EB088344DDA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsCalculator", "WinFormsCalculator\WinFormsCalculator.csproj", "{85456D68-D9BD-46C2-B843-1C8F35C620BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{08A8FFFA-FD51-4FA4-B128-EB088344DDA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08A8FFFA-FD51-4FA4-B128-EB088344DDA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08A8FFFA-FD51-4FA4-B128-EB088344DDA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85456D68-D9BD-46C2-B843-1C8F35C620BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85456D68-D9BD-46C2-B843-1C8F35C620BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85456D68-D9BD-46C2-B843-1C8F35C620BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85456D68-D9BD-46C2-B843-1C8F35C620BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
