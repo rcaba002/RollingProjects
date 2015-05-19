@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace CatchMeIfYouCan
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            listBox1.Hide();
+            endOfGame1.Hide();
 
         }
 
@@ -37,16 +38,8 @@ namespace CatchMeIfYouCan
             }
             else
             {
-                listBox1.Show();
+                endOfGame1.Show(clickTimes);
                 button1.Hide();
-
-                for (int i = 1; i < clickTimes.Count; i++)
-                {
-                    TimeSpan interval = clickTimes[i] - clickTimes[i - 1];
-                    string intervalString = string.Format(@"Click {0:00} -- {1:ss\.ff}", 
-                        i, interval);
-                    listBox1.Items.Add(intervalString);
-                }
             }
         }
 
@@ -58,12 +51,18 @@ namespace CatchMeIfYouCan
         /// </remarks>
         private void RelocateButton()
         {
-            button1.Location = new Point(random.Next(this.Width - button1.Width), random.Next(this.Height - button1.Height));
+            button1.Location = new Point(
+                random.Next(this.ClientSize.Width - button1.Width),
+                random.Next(this.ClientSize.Height - button1.Height));
+        }
 
-            while (button1.Right > this.Right || button1.Bottom > this.Bottom)
-            {
-                button1.Location = new Point(random.Next(this.Width - button1.Width), random.Next(this.Height - button1.Height));
-            }
+        private void endOfGame1_RestartGame(object sender, EventArgs e)
+        {
+            clickTimes.Clear();
+            endOfGame1.Hide();
+            button1.Show();
+            counter = 1;
+            RelocateButton();
         }
     }
 }
