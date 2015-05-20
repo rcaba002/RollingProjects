@@ -1,7 +1,11 @@
 ﻿<Window x:Class="SimpleContactManager.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        xmlns:scm="clr-namespace:SimpleContactManager"
+        Title="MainWindow" Height="450" Width="525">
+    <Window.Resources>
+        <scm:GravatarEmailConverter x:Key="GravatarEmailConverter" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -21,8 +25,8 @@
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
             </Grid.ColumnDefinitions>
 
             <ScrollViewer Grid.Column="0">
@@ -39,8 +43,12 @@
                 </ListBox>
             </ScrollViewer>
             <StackPanel Grid.Column="1"
-                        DataContext="{Binding SelectedItem, ElementName=ContactList}">
-
+                        DataContext="{Binding SelectedItem, ElementName=ContactList}"
+                        Margin="8">
+                
+                <Image Source="{Binding Email, Converter={StaticResource GravatarEmailConverter}}"
+                       Width="200"
+                       Stretch="Uniform" />
                 <TextBlock Text="{Binding Name}"
                                        FontSize="36"
                                        FontWeight="ExtraBold" 
