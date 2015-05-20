@@ -19,28 +19,36 @@
 
         <TextBlock Grid.Row="1">Contacts</TextBlock>
 
-        <ScrollViewer Grid.Row="2">
-            <ListBox x:Name="ContactList">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
 
-                        <StackPanel>
-                            <!--<StackPanel.Style>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="Margin"
-                                            Value="8" />
-                                </Style>
-                            </StackPanel.Style>-->
-                            <TextBlock Text="{Binding Name}"
+            <ScrollViewer Grid.Column="0">
+                <ListBox x:Name="ContactList">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+
+                            <StackPanel>
+                                <TextBlock Text="{Binding Name}"
+                                       FontSize="12" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </ScrollViewer>
+            <StackPanel Grid.Column="1"
+                        DataContext="{Binding SelectedItem, ElementName=ContactList}">
+
+                <TextBlock Text="{Binding Name}"
                                        FontSize="36"
-                                       FontWeight="ExtraBold" />
-                            <TextBlock Text="{Binding Email}" />
-                            <TextBlock Text="{Binding PhoneNumber}" />
-                            <TextBlock Text="{Binding Address}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </ScrollViewer>
+                                       FontWeight="ExtraBold" 
+                           Margin="0,24,0,0" />
+                <TextBlock Text="{Binding Email}" />
+                <TextBlock Text="{Binding PhoneNumber}" />
+                <TextBlock Text="{Binding Address}" />
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
