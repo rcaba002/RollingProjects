@@ -20,9 +20,22 @@ namespace SimpleContactManager
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Contact> contacts;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            contacts = new List<Contact> {
+                new Contact("John Doe", "jdoe@example.com", "314-555-1234", "123 Main"),
+                new Contact("Jane Doe", "jadoe@example.com", "314-555-3122", "345 Main"),
+                new Contact("Superman", "superman@example.com", "314-555-1235", "Fortress of Solitude")
+            };
+
+            foreach (var contact in contacts) 
+            {
+                ContactList.Items.Add(contact);
+            }
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
