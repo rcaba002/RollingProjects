@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +23,14 @@ namespace SimpleContactManager
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainViewModel ViewModel
+        {
+            get
+            {
+                return DataContext as MainViewModel;
+            }
+        }
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -32,7 +43,21 @@ namespace SimpleContactManager
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("We should save data here...");
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.DefaultExt = ".json";
+            dialog.Filter = "JSON Document (*.json)|*.json";
+
+            if (dialog.ShowDialog().GetValueOrDefault())
+            {
+                string data = JsonConvert.SerializeObject(ViewModel.Contacts, Formatting.Indented);
+                using (Stream steam = dialog.OpenFile())
+                {
+                    using (StreamWriter writer = new StreamWriter(steam))
+                    {
+                        writer.Write(data);
+                    }
+                }
+            }
         }
     }
 }
