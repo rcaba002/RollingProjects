@@ -21,5 +21,18 @@ namespace SimpleContactManager
         }
 
         public ObservableCollection<Contact> Contacts { get; set; }
+
+        private Contact selectedContact;
+        public Contact SelectedContact
+        {
+            get
+            {
+                return selectedContact;
+            }
+            set
+            {
+                Set(() => SelectedContact, ref selectedContact, value);
+            }
+        }
     }
 }

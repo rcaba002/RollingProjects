@@ -32,7 +32,8 @@
 
             <ScrollViewer Grid.Column="0">
                 <ListBox x:Name="ContactList"
-                         ItemsSource="{Binding Contacts}">
+                         ItemsSource="{Binding Contacts}"
+                         SelectedItem="{Binding SelectedContact}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
 
@@ -45,7 +46,7 @@
                 </ListBox>
             </ScrollViewer>
             <StackPanel Grid.Column="1"
-                        DataContext="{Binding SelectedItem, ElementName=ContactList}"
+                        DataContext="{Binding SelectedContact}"
                         Margin="8">
                 
                 <Image Source="{Binding Email, Converter={StaticResource GravatarEmailConverter}}"
