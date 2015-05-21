@@ -57,6 +57,7 @@ namespace SimpleContactManager
             set
             {
                 Set(() => SelectedContact, ref selectedContact, value);
+                EditingContact = null;
             }
         }
 
