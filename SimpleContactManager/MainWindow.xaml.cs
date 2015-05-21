@@ -38,7 +38,27 @@ namespace SimpleContactManager
 
         private void Load_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("We should load data here...");
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.DefaultExt = ".json";
+            dialog.Filter = "JSON Document (*.json)|*.json";
+
+            if (dialog.ShowDialog().GetValueOrDefault())
+            {
+                using (Stream steam = dialog.OpenFile())
+                {
+                    using (StreamReader reader = new StreamReader(steam))
+                    {
+                        string data = reader.ReadToEnd();
+                        List<Contact> contacts = JsonConvert.DeserializeObject<List<Contact>>(data);
+                        ViewModel.Contacts.Clear();
+
+                        foreach (Contact contact in contacts)
+                        {
+                            ViewModel.Contacts.Add(contact);
+                        }
+                    }
+                }
+            }
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
