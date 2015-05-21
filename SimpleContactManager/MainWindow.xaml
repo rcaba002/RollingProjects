@@ -45,21 +45,25 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </ScrollViewer>
-            <StackPanel Grid.Column="1"
+            <StackPanel Grid.Column="1">
+                <Button Command="{Binding DeleteContact}">Delete</Button>
+                <StackPanel
                         DataContext="{Binding SelectedContact}"
                         Margin="8">
-                
-                <Image Source="{Binding Email, Converter={StaticResource GravatarEmailConverter}}"
+
+                    <Image Source="{Binding Email, Converter={StaticResource GravatarEmailConverter}}"
                        Width="200"
                        Stretch="Uniform" />
-                <TextBlock Text="{Binding Name}"
+                    <TextBlock Text="{Binding Name}"
                                        FontSize="36"
                                        FontWeight="ExtraBold" 
                            Margin="0,24,0,0" />
-                <TextBlock Text="{Binding Email}" />
-                <TextBlock Text="{Binding PhoneNumber}" />
-                <TextBlock Text="{Binding Address}" />
+                    <TextBlock Text="{Binding Email}" />
+                    <TextBlock Text="{Binding PhoneNumber}" />
+                    <TextBlock Text="{Binding Address}" />
+                </StackPanel>
             </StackPanel>
+
         </Grid>
     </Grid>
 </Window>

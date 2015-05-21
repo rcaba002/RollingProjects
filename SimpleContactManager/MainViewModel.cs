@@ -1,10 +1,12 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SimpleContactManager
 {
@@ -18,6 +20,15 @@ namespace SimpleContactManager
                 new Contact("Andrew Benz", "andorbal@gmail.com", "", ""),
                 new Contact("Superman", "superman@example.com", "314-555-1235", "Fortress of Solitude")
             });
+
+            DeleteContact = new RelayCommand(DeleteContactAction);
+        }
+
+        public ICommand DeleteContact { get; private set; }
+
+        public void DeleteContactAction()
+        {
+            Contacts.Remove(SelectedContact);
         }
 
         public ObservableCollection<Contact> Contacts { get; set; }

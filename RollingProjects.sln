@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatchMeIfYouCan", "CatchMeI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleContactManager", "SimpleContactManager\SimpleContactManager.csproj", "{3EF582B3-7C28-43FA-A4C4-B63DEBDB0BC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SImpleContactManagerTests", "Tests\SImpleContactManagerTests\SImpleContactManagerTests.csproj", "{FA91DBF6-EB15-4C1F-AE8C-5788F4F2A82B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,11 +67,16 @@ Global
 		{3EF582B3-7C28-43FA-A4C4-B63DEBDB0BC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EF582B3-7C28-43FA-A4C4-B63DEBDB0BC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EF582B3-7C28-43FA-A4C4-B63DEBDB0BC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA91DBF6-EB15-4C1F-AE8C-5788F4F2A82B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA91DBF6-EB15-4C1F-AE8C-5788F4F2A82B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA91DBF6-EB15-4C1F-AE8C-5788F4F2A82B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA91DBF6-EB15-4C1F-AE8C-5788F4F2A82B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{08A8FFFA-FD51-4FA4-B128-EB088344DDA4} = {7C746CF5-35E9-4D9E-88F8-8FAF58DB7FFA}
+		{FA91DBF6-EB15-4C1F-AE8C-5788F4F2A82B} = {7C746CF5-35E9-4D9E-88F8-8FAF58DB7FFA}
 	EndGlobalSection
 EndGlobal

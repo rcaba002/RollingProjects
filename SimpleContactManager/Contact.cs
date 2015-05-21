@@ -16,6 +16,11 @@ namespace SimpleContactManager
             Address = address;
         }
 
+        public Contact()
+        {
+            // TODO: Complete member initialization
+        }
+
         public string Name { get; set; }
 
         public string Email { get; set; }
