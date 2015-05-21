@@ -23,10 +23,12 @@ namespace SimpleContactManager
 
             DeleteContact = new RelayCommand(DeleteContactAction);
             AddContact = new RelayCommand(AddContactAction);
+            EditContact = new RelayCommand(EditContactAction);
         }
 
         public ICommand DeleteContact { get; private set; }
         public ICommand AddContact { get; private set; }
+        public ICommand EditContact { get; private set; }
 
         public void DeleteContactAction()
         {
@@ -38,6 +40,11 @@ namespace SimpleContactManager
             Contact contact = new Contact { Name = "New Contact" };
             EditingContact = contact;
             Contacts.Add(contact);
+        }
+
+        private void EditContactAction()
+        {
+            EditingContact = SelectedContact;
         }
 
         public ObservableCollection<Contact> Contacts { get; set; }

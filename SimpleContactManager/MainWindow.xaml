@@ -55,6 +55,7 @@
             </ScrollViewer>
             <StackPanel Grid.Column="1">
                 <Button Command="{Binding DeleteContact}">Delete</Button>
+                <Button Command="{Binding EditContact}">Edit</Button>
                 <StackPanel
                         DataContext="{Binding SelectedContact}"
                         Margin="8">
