@@ -22,8 +22,16 @@
             </MenuItem>
         </Menu>
 
-        <TextBlock Grid.Row="1">Contacts</TextBlock>
-
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.Column="0">Contacts</TextBlock>
+            <Button Grid.Column="1" Command="{Binding AddContact}">Add Contact</Button>
+        </Grid>
+        
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*" />
@@ -63,7 +71,40 @@
                     <TextBlock Text="{Binding Address}" />
                 </StackPanel>
             </StackPanel>
+            <StackPanel Grid.Column="1"
+                        Background="White"
+                        Visibility="{Binding IsEditing, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock>Edit Contact</TextBlock>
+                
+                <Grid DataContext="{Binding EditingContact}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Grid.Column="0" Grid.Row="0">Name</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="0"
+                             Text="{Binding Name}" />
 
+                    <TextBlock Grid.Column="0" Grid.Row="1">Email</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="1"
+                             Text="{Binding Email}" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="2">Phone Number</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="2"
+                             Text="{Binding PhoneNumber}" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="3">Address</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="3"
+                             Text="{Binding Address}" />
+                </Grid>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>

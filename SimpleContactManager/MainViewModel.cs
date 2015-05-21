@@ -22,27 +22,55 @@ namespace SimpleContactManager
             });
 
             DeleteContact = new RelayCommand(DeleteContactAction);
+            AddContact = new RelayCommand(AddContactAction);
         }
 
         public ICommand DeleteContact { get; private set; }
+        public ICommand AddContact { get; private set; }
 
         public void DeleteContactAction()
         {
             Contacts.Remove(SelectedContact);
         }
 
+        private void AddContactAction()
+        {
+            Contact contact = new Contact { Name = "New Contact" };
+            EditingContact = contact;
+            Contacts.Add(contact);
+        }
+
         public ObservableCollection<Contact> Contacts { get; set; }
+
+        public bool IsEditing
+        {
+            get
+            {
+                return EditingContact != null;
+            }
+        }
 
         private Contact selectedContact;
         public Contact SelectedContact
         {
-            get
-            {
-                return selectedContact;
-            }
+            get { return selectedContact; }
             set
             {
                 Set(() => SelectedContact, ref selectedContact, value);
+            }
+        }
+
+        private Contact editingContact;
+        public Contact EditingContact
+        {
+            get
+            {
+                return editingContact;
+            }
+            set
+            {
+                Set(() => EditingContact, ref editingContact, value);
+                RaisePropertyChanged(() => IsEditing);
             }
         }
     }
