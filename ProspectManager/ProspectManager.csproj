@@ -38,6 +38,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -94,17 +100,29 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
+    <Content Include="Views\TodoItems\Create.cshtml" />
+    <Content Include="Views\TodoItems\Delete.cshtml" />
+    <Content Include="Views\TodoItems\Details.cshtml" />
+    <Content Include="Views\TodoItems\Edit.cshtml" />
+    <Content Include="Views\TodoItems\Index.cshtml" />
+    <Content Include="Views\TodoItems\All.cshtml" />
+    <Content Include="Views\TodoItems\_List.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Boolean.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\TodoItemsController.cs" />
     <Compile Include="Models\Contacts\Contact.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\Home\IndexViewModel.cs" />
+    <Compile Include="Models\TodoItems\TodoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeededDatabaseInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

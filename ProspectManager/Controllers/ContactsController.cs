@@ -1,6 +1,8 @@
-﻿using ProspectManager.Models.Contacts;
+﻿using ProspectManager.Models;
+using ProspectManager.Models.Contacts;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,32 +11,47 @@ namespace ProspectManager.Controllers
 {
     public class ContactsController : Controller
     {
-        private static Dictionary<int, Contact> contacts =
-            new Dictionary<int, Contact>
-            {
-                {1, new Contact { Name = "John Doe", Email = "j.doe@example.com", BirthDate = new DateTime(1978, 4, 3), Id = 1}},
-                {2, new Contact { Name = "Jane Doe", Email = "jdoe@example.com", BirthDate = new DateTime(1978, 6, 3), Id = 2}},
-                {3, new Contact { Name = "Superman", Email = "super@example.com", BirthDate = new DateTime(1978, 9, 3), Id = 3}}
-            };
+        DataContext db = new DataContext();
 
         // GET: Contact
         public ActionResult Index()
         {
-            return View(contacts.Values.ToList());
+            return View(db.Contacts.ToList());
         }
 
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var contact = contacts[id];
+            var contact = db.Contacts.Find(id);
             return View(contact);
         }
 
         [HttpPost]
         public ActionResult Edit(Contact contact)
         {
-            contacts[contact.Id] = contact;
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError(string.Empty, "There were some errors");
+                return View(contact);
+            }
+
+            Contact retreivedContact = db.Contacts.Find(contact.Id);
+            retreivedContact.Name = contact.Name;
+            retreivedContact.BirthDate = contact.BirthDate;
+            retreivedContact.Email = contact.Email;
+
+            db.SaveChanges();
+
             return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
