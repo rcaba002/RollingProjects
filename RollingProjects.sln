@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleContactManager", "Sim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SImpleContactManagerTests", "Tests\SImpleContactManagerTests\SImpleContactManagerTests.csproj", "{FA91DBF6-EB15-4C1F-AE8C-5788F4F2A82B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProspectManager", "ProspectManager\ProspectManager.csproj", "{1B226A2F-24A6-4E51-8E05-3BB4E024060F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{FA91DBF6-EB15-4C1F-AE8C-5788F4F2A82B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA91DBF6-EB15-4C1F-AE8C-5788F4F2A82B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA91DBF6-EB15-4C1F-AE8C-5788F4F2A82B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B226A2F-24A6-4E51-8E05-3BB4E024060F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B226A2F-24A6-4E51-8E05-3BB4E024060F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B226A2F-24A6-4E51-8E05-3BB4E024060F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B226A2F-24A6-4E51-8E05-3BB4E024060F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
