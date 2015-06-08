@@ -136,6 +136,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Views\Contacts\Create.cshtml" />
+    <None Include="Views\Contacts\Delete.cshtml" />
+    <None Include="Views\Contacts\Details.cshtml" />
+    <None Include="Views\Contacts\_List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
