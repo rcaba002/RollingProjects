@@ -12,5 +12,7 @@ namespace ProspectManager.Models.Home
         public List<TodoItem> UpcomingTodos { get; set; }
 
         public List<Meeting> UpcomingMeetings { get; set; }
+
+        public List<char> Alphabet { get; set; }
     }
 }

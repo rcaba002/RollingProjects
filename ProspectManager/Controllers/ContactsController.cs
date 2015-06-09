@@ -21,6 +21,13 @@ namespace ProspectManager.Controllers
             return View(db.Contacts.ToList());
         }
 
+        public ActionResult FilteredBy(string id)
+        {
+            return View("Index", db.Contacts
+                .Where(x => x.Name.StartsWith(id))
+                .ToList());
+        }
+
         [HttpGet]
         public ActionResult Edit(int id)
         {

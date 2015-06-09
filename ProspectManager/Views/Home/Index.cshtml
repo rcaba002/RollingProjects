@@ -6,6 +6,13 @@
 <h2>Home</h2>
 
 <div class="row">
+    @foreach (var item in @Model.Alphabet)
+    {
+        @Html.ActionLink(item.ToString(), "FilteredBy", "Contacts", new { id = item }, null)
+    }
+</div>
+
+<div class="row">
     <div class="col-sm-6">
         <h3>Upcoming todos</h3>
 
