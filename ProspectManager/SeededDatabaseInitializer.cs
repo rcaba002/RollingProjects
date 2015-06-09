@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using ProspectManager.Models.Meetings;
 
 namespace ProspectManager
 {
@@ -27,16 +28,9 @@ namespace ProspectManager
             context.TodoItems.Add(new TodoItem { Description = "Already done", DueDate = new DateTime(2015, 7, 1), Completed = true });
             context.TodoItems.Add(new TodoItem { Description = "Not due ever" });
 
+            context.Locations.Add(new Location { Name = "Main Conference" });
+            context.Locations.Add(new Location { Name = "Small Conference" });
+
         }
-
-        //protected override void Seed(DataContext context)
-        //{
-        //    base.Seed(context);
-
-        //    context.Contacts.Add(new Contact { Name = "Superman", Age = 39 });
-        //    context.Contacts.Add(new Contact { Name = "John Doe", Age = 26 });
-        //    context.Contacts.Add(new Contact { Name = "Jane Doe", Age = 25 });
-        //    context.SaveChanges();
-        //}
     }
 }

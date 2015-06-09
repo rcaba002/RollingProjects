@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\MeetingsController.cs" />
     <Compile Include="Controllers\TodoItemsController.cs" />
     <Compile Include="Models\Contacts\Contact.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
@@ -120,6 +121,8 @@
     </Compile>
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\Home\IndexViewModel.cs" />
+    <Compile Include="Models\Meetings\Location.cs" />
+    <Compile Include="Models\Meetings\Meeting.cs" />
     <Compile Include="Models\TodoItems\TodoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeededDatabaseInitializer.cs" />
@@ -140,6 +143,11 @@
     <None Include="Views\Contacts\Delete.cshtml" />
     <None Include="Views\Contacts\Details.cshtml" />
     <None Include="Views\Contacts\_List.cshtml" />
+    <Content Include="Views\Meetings\Create.cshtml" />
+    <Content Include="Views\Meetings\Delete.cshtml" />
+    <Content Include="Views\Meetings\Details.cshtml" />
+    <Content Include="Views\Meetings\Edit.cshtml" />
+    <Content Include="Views\Meetings\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

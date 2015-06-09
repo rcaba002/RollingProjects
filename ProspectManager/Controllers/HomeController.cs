@@ -10,13 +10,9 @@ namespace ProspectManager.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(int? id)
+        public ActionResult Index()
         {
-            var model = new IndexViewModel { 
-                Id = id.GetValueOrDefault()
-            };
-
-            return View(model);
+            return View();
         }
     }
 }

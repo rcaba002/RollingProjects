@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using ProspectManager.Models.Meetings;
 
 namespace ProspectManager.Models
 {
@@ -18,5 +19,9 @@ namespace ProspectManager.Models
         public DbSet<TodoItem> TodoItems { get; set; }
 
         public DbSet<Contact> Contacts { get; set; }
+
+        public DbSet<Meeting> Meetings { get; set; }
+
+        public DbSet<Location> Locations { get; set; } 
     }
 }
